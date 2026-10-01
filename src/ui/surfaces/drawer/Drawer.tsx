@@ -19,13 +19,19 @@ export default function Navbar() {
         </DrawerItem>
 
         <DrawerItem isSelected={false}>
-          <FontAwesomeIcon icon={faChartLine} size="2x" />
-          <span>Goals</span>
-        </DrawerItem>
+  <FontAwesomeIcon icon={faChartLine} size="2x" />
+  <span>Goals</span>
+</DrawerItem>
       </Section>
 
       <Section>
         <DrawerItem isSelected={false}>
+          onClick={() => {
+            document.getElementById('goals-section')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            })
+          }}
           <FontAwesomeIcon icon={faGear} size="2x" />
           <span>Settings</span>
         </DrawerItem>
@@ -58,7 +64,9 @@ const Section = styled.div`
   flex-direction: column;
 `
 
-type DrawerItemProps = { isSelected: boolean }
+type DrawerItemProps = {
+  isSelected: boolean
+}
 const DrawerItem = styled.div<DrawerItemProps>`
   display: flex;
   flex-direction: row;

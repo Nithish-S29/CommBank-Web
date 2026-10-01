@@ -27,11 +27,15 @@ export default function GoalCard(props: Props) {
 
   return (
     <Container key={goal.id} onClick={onClick}>
+      <Icon>🎯</Icon>
       <TargetAmount>${goal.targetAmount}</TargetAmount>
       <TargetDate>{asLocaleDateString(goal.targetDate)}</TargetDate>
     </Container>
   )
 }
+const Icon = styled.h1`
+    font-size: 5.5rem;
+`
 
 const Container = styled(Card)`
   display: flex;
